@@ -101,7 +101,8 @@ import requests
 # Store all the words from the dataset which are non-racist/sexist
 all_words_positive = ' '.join(text for text in combine['Tidy_Tweets'][combine['label']==0])
 
-# We can see most of the words are positive or neutral. With happy, smile, and love being the most frequent ones. Hence, most of the frequent words are compatible with the sentiment which is non racist/sexists tweets.
+# We can see most of the words are positive or neutral. With happy, smile, and love being the most frequent ones. 
+# Hence, most of the frequent words are compatible with the sentiment which is non racist/sexists tweets.
 
 # combining the image with the dataset
 Mask = np.array(Image.open(requests.get('http://clipart-library.com/image_gallery2/Twitter-PNG-Image.png', stream=True).raw))
