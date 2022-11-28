@@ -125,9 +125,6 @@ plt.imshow(wc.recolor(color_func=image_colors),interpolation="hamming")
 plt.axis('off')
 plt.show()
 
-
-
-
 # Store all the words from the dataset which are racist/sexist
 
 all_words_negative = ' '.join(text for text in combine['Tidy_Tweets'][combine['label']==1])
