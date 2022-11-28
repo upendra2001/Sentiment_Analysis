@@ -47,13 +47,14 @@ combine['Tidy_Tweets'] = np.vectorize(remove_pattern)(combine['tweet'], "@[\w]*"
 
 combine.head()
 
+# Removing Punctuations, Numbers, and Special Characters
+# Punctuations, numbers and special characters do not help much. It is better to remove them from the text just as we removed the twitter handles. 
+# Here we will replace everything except characters and hashtags with spaces.
+
 combine['Tidy_Tweets'] = combine['Tidy_Tweets'].str.replace("[^a-zA-Z#]", " ")
 
 combine.head(10)
 
-# Removing Punctuations, Numbers, and Special Characters
-# Punctuations, numbers and special characters do not help much. It is better to remove them from the text just as we removed the twitter handles. 
-# Here we will replace everything except characters and hashtags with spaces.
 
 combine['Tidy_Tweets'] = combine['Tidy_Tweets'].apply(lambda x: ' '.join([w for w in x.split() if len(w)>3]))
 
