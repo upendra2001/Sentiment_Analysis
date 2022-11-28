@@ -22,7 +22,7 @@ test = pd.read_csv('https://raw.githubusercontent.com/dD2405/Twitter_Sentiment_A
 test_original=test.copy()
 test.shape
 test_original
-
+# We combine Train and Test datasets for pre-processing stage
 combine = train.append(test,ignore_index=True,sort=True)
 combine.head()
 combine.tail()
@@ -37,8 +37,6 @@ def remove_pattern(text, pattern):
         text = re.sub(i, "", text)
 
     return text
-
-# Removing Punctuations, Numbers, and Special Characters
 
 combine['Tidy_Tweets'] = np.vectorize(remove_pattern)(combine['tweet'], "@[\w]*")
 
