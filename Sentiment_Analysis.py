@@ -1,4 +1,5 @@
-#import re
+# importing necessary packages
+import re
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -9,7 +10,9 @@ import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 %matplotlib inline
+# train dataset used for our analysis
 train = pd.read_csv('https://raw.githubusercontent.com/dD2405/Twitter_Sentiment_Analysis/master/train.csv')
+# making a copy of dataset
 train_original=train.copy()
 
 train.shape
