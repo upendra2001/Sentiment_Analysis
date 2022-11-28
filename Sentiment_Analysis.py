@@ -11,14 +11,14 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 %matplotlib inline
 # train dataset used for our analysis
-train = pd.read_csv('https://raw.githubusercontent.com/dD2405/Twitter_Sentiment_Analysis/master/train.csv')
+train = pd.read_csv('https://github.com/upendra2001/Sentiment_Analysis/blob/main/train.csv')
 # making a copy of dataset
 train_original=train.copy()
 
 train.shape
 
 train_original
-test = pd.read_csv('https://raw.githubusercontent.com/dD2405/Twitter_Sentiment_Analysis/master/test.csv')
+test = pd.read_csv('https://github.com/upendra2001/Sentiment_Analysis/blob/main/test.csv')
 test_original=test.copy()
 test.shape
 test_original
