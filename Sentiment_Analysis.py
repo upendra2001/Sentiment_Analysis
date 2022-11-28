@@ -38,6 +38,8 @@ def remove_pattern(text, pattern):
 
     return text
 
+# Removing Punctuations, Numbers, and Special Characters
+
 combine['Tidy_Tweets'] = np.vectorize(remove_pattern)(combine['tweet'], "@[\w]*")
 
 combine.head()
