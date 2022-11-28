@@ -78,44 +78,11 @@ for i in range(len(tokenized_tweet)):
 combine['Tidy_Tweets'] = tokenized_tweet
 combine.head()
 
-#Visualization from Tweets
-# Wordcloud
-# A wordcloud is a visualization wherein the most frequent words appear in large size and the less frequent words appear in smaller sizes.
-# Importing Packages necessary for generating a WordCloud
-# from wordcloud import WordCloud,ImageColorGenerator
-
-from wordcloud import WordCloud,ImageColorGenerator
-from PIL import Image
-import urllib
-import requests
-
-# Store all the words from the dataset which are non-racist/sexist
-all_words_positive = ' '.join(text for text in combine['Tidy_Tweets'][combine['label']==0])
-
-# We can see most of the words are positive or neutral. With happy, smile, and love being the most frequent ones. Hence, most of the frequent words are compatible with the sentiment which is non racist/sexists tweets.
-
-# combining the image with the dataset
-Mask = np.array(Image.open(requests.get('http://clipart-library.com/image_gallery2/Twitter-PNG-Image.png', stream=True).raw))
-
-# We use the ImageColorGenerator library from Wordcloud 
-# Here we take the color of the image and impose it over our wordcloud
-image_colors = ImageColorGenerator(Mask)
-
-# Now we use the WordCloud function from the wordcloud library 
-wc = WordCloud(background_color='black', height=1500, width=4000,mask=Mask).generate(all_words_positive)
-
-# Size of the image generated 
-plt.figure(figsize=(10,20))
-
-# Here we recolor the words from the dataset to the image's color
-# recolor just recolors the default colors to the image's blue color
-# interpolation is used to smooth the image generated 
-plt.imshow(wc.recolor(color_func=image_colors),interpolation="hamming")
-
-plt.axis('off')
-plt.show()
 
 
+
+
+# Store all the words from the dataset which are racist/sexist
 
 all_words_negative = ' '.join(text for text in combine['Tidy_Tweets'][combine['label']==1])
 
