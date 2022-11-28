@@ -55,6 +55,10 @@ combine['Tidy_Tweets'] = combine['Tidy_Tweets'].str.replace("[^a-zA-Z#]", " ")
 
 combine.head(10)
 
+# Removing Short Words
+# We have to be a little careful here in selecting the length of the words which we want to remove.
+# So, I have decided to remove all the words having length 3 or less. For example, terms like “hmm”, “oh” are of very little use. 
+# It is better to get rid of them.
 
 combine['Tidy_Tweets'] = combine['Tidy_Tweets'].apply(lambda x: ' '.join([w for w in x.split() if len(w)>3]))
 
