@@ -27,6 +27,9 @@ combine = train.append(test,ignore_index=True,sort=True)
 combine.head()
 combine.tail()
 
+#Removing Twitter Handles (@user)
+# a user-defined function to remove unwanted text patterns from the tweets.
+# It takes two arguments, one is the original string of text and the other is the pattern of text that we want to remove from the string.
 
 def remove_pattern(text, pattern):
     # re.findall() finds the pattern i.e @user and puts it in a list for further task
