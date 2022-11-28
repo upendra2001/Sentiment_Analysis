@@ -15,18 +15,22 @@ train = pd.read_csv('https://raw.githubusercontent.com/dD2405/Twitter_Sentiment_
 # making a copy of dataset
 train_original=train.copy()
 
-train.shape
+train.shape111`         
 
 train_original
 test = pd.read_csv('https://raw.githubusercontent.com/dD2405/Twitter_Sentiment_Analysis/master/test.csv')
 test_original=test.copy()
 test.shape
 test_original
-# We combine Train and Test datasets for pre-processing stage
+
 combine = train.append(test,ignore_index=True,sort=True)
 combine.head()
 combine.tail()
 
+# Removing Twitter Handles (@user)
+# a user-defined function to remove unwanted text patterns from the tweets.
+# It takes two arguments, one is the original string of text and the other is the pattern of text that we want to remove from the string.
+# The function returns the same input string but without the given pattern. 
 
 def remove_pattern(text, pattern):
     # re.findall() finds the pattern i.e @user and puts it in a list for further task
