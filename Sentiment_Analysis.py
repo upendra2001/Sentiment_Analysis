@@ -363,3 +363,10 @@ res
 
 sns.countplot(train_original['label'])
 sns.despine()
+
+
+# create a pickle file
+# python flask
+# flask server
+# load the pickle model
+# render the index.html
