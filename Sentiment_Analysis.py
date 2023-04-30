@@ -193,8 +193,8 @@ Log_Reg.fit(x_train_bow,y_train_bow)
 # The first part of the list is predicting probabilities for label:0
 # and the second part of the list is predicting probabilities for label:1
 prediction_bow = Log_Reg.predict_proba(x_valid_bow)
-prediction_bow
-
+print("Hello\n",prediction_bow)
+# exit()
 
 from sklearn.metrics import f1_score
 # if prediction is greater than or equal to 0.3 than 1 else 0
@@ -320,3 +320,38 @@ sns.despine()
 # flask server
 # load the pickle model
 # render the index.html
+
+# import nltk
+# nltk.download('stopwords')
+from nltk.corpus import stopwords
+import string
+stopword=set(stopwords.words('english'))
+# print(stopword)
+
+sentiment_model = LogisticRegression(solver='liblinear', random_state=0)
+sentiment_model.fit(x_train_bow,y_train_bow)
+
+import string
+
+sample = "hate trump black"
+def clean(text):
+    text = str(text).lower()
+    text = re.sub('\[.*?\]', '', text)
+    text = re.sub('https?://\S+|www\.\S+', '', text)
+    text = re.sub('<.*?>+', '', text)
+    text = re.sub('[%s]' % re.escape(string.punctuation), '', text)
+    text = re.sub('\n', '', text)
+    text = re.sub('\w*\d\w*', '', text)
+    text = [word for word in text.split(' ') if word not in stopword]
+    text=" ".join(text)
+    text = [ps.stem(word) for word in text.split(' ')]
+    text=" ".join(text)
+    return text
+
+data=clean(sample)
+data=bow_vectorizer.transform([sample]).toarray()
+print(sentiment_model.predict(data))
+
+
+with open('sentiment_model_1', 'wb') as files:
+    pickle.dump(sentiment_model, files)
