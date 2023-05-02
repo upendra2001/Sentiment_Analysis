@@ -163,6 +163,7 @@ df_bow = pd.DataFrame(bow.todense())
 print("features from cleaned tweets using bag of words")
 print(df_bow)
 
+
 # Tfidf to data frame
 from sklearn.feature_extraction.text import TfidfVectorizer
 tfidf=TfidfVectorizer(max_df=0.90, min_df=2,max_features=1000,stop_words='english')
@@ -313,13 +314,6 @@ res
 
 sns.countplot(train_original['label'])
 sns.despine()
-
-
-# create a pickle file
-# python flask
-# flask server
-# load the pickle model
-# render the index.html
 
 # import nltk
 # nltk.download('stopwords')
